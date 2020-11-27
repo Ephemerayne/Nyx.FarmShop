@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_1"
+        android:enabled="true"
+        android:icon="@mipmap/shop"
+        android:title="@string/shop" />
+    <item
+        android:id="@+id/item_2"
+        android:enabled="true"
+        android:icon="@mipmap/food"
+        android:title="@string/food" />
+
+    <item
+        android:id="@+id/item_3"
+        android:enabled="true"
+        android:icon="@mipmap/basket"
+        android:title="@string/basket" />
+
+    <item
+        android:id="@+id/item_4"
+        android:enabled="true"
+        android:icon="@mipmap/info"
+        android:title="@string/info" />
+</menu>

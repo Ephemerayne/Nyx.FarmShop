@@ -2,9 +2,10 @@
     <string name="app_name">Nyx.FarmShop</string>
     <string name="shop">Маркет</string>
     <string name="food">Меню</string>
+    <string name="basket">Корзина</string>
+    <string name="info">Инфо</string>
     <string name="icon_shop_description">Иконка магазина</string>
     <string name="icon_food_description">Иконка меню</string>
     <string name="icon_basket_description">Иконка корзины</string>
     <string name="icon_info_description">Иконка информации</string>
-
 </resources>
