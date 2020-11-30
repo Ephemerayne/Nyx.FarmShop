@@ -1,12 +1,22 @@
 <resources>
     <string name="app_name">Nyx.FarmShop</string>
-    <string name="shop">Маркет</string>
-    <string name="food">Меню</string>
-    <string name="basket">Корзина</string>
-    <string name="info">Инфо</string>
+    <string name="shop_icon">Маркет</string>
+    <string name="food_icon">Меню</string>
+    <string name="basket_icon">Корзина</string>
+    <string name="info_icon">Инфо</string>
     <string name="icon_shop_description">Иконка магазина</string>
     <string name="icon_food_description">Иконка меню</string>
     <string name="icon_basket_description">Иконка корзины</string>
     <string name="icon_info_description">Иконка информации</string>
     <string name="hello_menu_fragment">Hello menu fragment</string>
+    <string name="hello_market_fragment">Hello market fragment</string>
+    <string name="hello_basket_fragment">Hello basket fragment</string>
+    <string name="hello_info_fragment">Hello info fragment</string>
+    <string name="profile_icon">Профиль</string>
+    <string name="prompt_number_phone">Номер телефона</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="action_sign_in">Войти</string>
+    <string name="invalid_username">Неверный номер телефона</string>
+    <string name="invalid_password">Пароль должен содержать более 5 символов</string>
+    <string name="login_failed">"Login failed"</string>
 </resources>

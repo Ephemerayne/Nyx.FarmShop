@@ -4,22 +4,28 @@
         android:id="@+id/item_1"
         android:enabled="true"
         android:icon="@mipmap/shop"
-        android:title="@string/shop" />
+        android:title="@string/shop_icon" />
     <item
         android:id="@+id/item_2"
         android:enabled="true"
         android:icon="@mipmap/food"
-        android:title="@string/food" />
+        android:title="@string/food_icon" />
 
     <item
         android:id="@+id/item_3"
         android:enabled="true"
         android:icon="@mipmap/basket"
-        android:title="@string/basket" />
+        android:title="@string/basket_icon" />
 
     <item
         android:id="@+id/item_4"
         android:enabled="true"
         android:icon="@mipmap/info"
-        android:title="@string/info" />
+        android:title="@string/info_icon" />
+
+    <item
+        android:id="@+id/item_5"
+        android:enabled="true"
+        android:icon="@mipmap/profile"
+        android:title="@string/profile_icon" />
 </menu>

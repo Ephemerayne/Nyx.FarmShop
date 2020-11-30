@@ -13,6 +13,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import space.lala.nyxfarmshop.ui.login.ProfileFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigation;
@@ -23,26 +25,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bottomNavigation = findViewById(R.id.bottom_navigation);
+        openFragment(new MarketFragment());
 
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.item_1:
-
+                        openFragment(new MarketFragment());
                         break;
                     case R.id.item_2:
                         openFragment(new MenuFragment());
                         break;
                     case R.id.item_3:
+                        openFragment(new BasketFragment());
+                        break;
                     case R.id.item_4:
+                        openFragment(new InfoFragment());
+                        break;
+                    case R.id.item_5:
+                        openFragment(new ProfileFragment());
+                        break;
                 }
                 return false;
             }
         });
 
     }
-    public void openFragment (Fragment fragment) {
+
+    public void openFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);
         transaction.addToBackStack(null);
