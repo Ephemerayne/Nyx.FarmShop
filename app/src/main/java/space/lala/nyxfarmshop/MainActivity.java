@@ -1,6 +1,7 @@
 package space.lala.nyxfarmshop;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bottomNavigation = findViewById(R.id.bottom_navigation);
         openFragment(new MarketFragment());
+        bottomNavigation.setItemIconTintList(null);
 
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -47,10 +49,20 @@ public class MainActivity extends AppCompatActivity {
                         openFragment(new ProfileFragment());
                         break;
                 }
-                return false;
+                updateNavigationBarState(item.getItemId());
+                return true;
             }
         });
 
+    }
+
+    private void updateNavigationBarState(int actionId){
+        Menu menu = bottomNavigation.getMenu();
+
+        for (int i = 0, size = menu.size(); i < size; i++) {
+            MenuItem item = menu.getItem(i);
+            item.setChecked(item.getItemId() == actionId);
+        }
     }
 
     public void openFragment(Fragment fragment) {
