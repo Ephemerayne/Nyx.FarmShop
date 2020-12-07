@@ -1,10 +1,11 @@
 package space.lala.nyxfarmshop.model;
 
-public class MenuItemModel {
+public class VerticalMenuItemModel {
     public String itemName;
     public int itemId;
 
-    public MenuItemModel (String itemName, int id) {
+    public VerticalMenuItemModel (String itemName, int id) {
 
     }
 }
+

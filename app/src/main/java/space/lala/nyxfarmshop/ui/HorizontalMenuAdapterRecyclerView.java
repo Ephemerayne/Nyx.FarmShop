@@ -10,26 +10,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import space.lala.nyxfarmshop.R;
-import space.lala.nyxfarmshop.model.MenuItemModel;
+import space.lala.nyxfarmshop.model.HorizontalMenuItemModel;
 
-public class MenuAdapterRecyclerView extends RecyclerView.Adapter<MenuAdapterRecyclerView.ViewHolder> {
+public class HorizontalMenuAdapterRecyclerView extends RecyclerView.Adapter<HorizontalMenuAdapterRecyclerView.ViewHolder> {
 
-    private ArrayList<MenuItemModel> items;
+    private ArrayList<HorizontalMenuItemModel> items;
 
-    public void setItems(ArrayList<MenuItemModel> items) {
+    public void setItems(ArrayList<HorizontalMenuItemModel> items) {
         this.items = items;
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public MenuAdapterRecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.menu_recycler_items, viewGroup, false);
+    public HorizontalMenuAdapterRecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.horizontal_menu_recycler_items, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MenuAdapterRecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HorizontalMenuAdapterRecyclerView.ViewHolder holder, int position) {
         int colorId;
 
         if (position % 2 == 0) {
