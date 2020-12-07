@@ -13,10 +13,12 @@
         tools:text="Item" />
 
     <ImageView
-        android:id="@+id/img_item"
+        android:id="@+id/img_item_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         tools:layout_height="100dp"
-        tools:layout_width="match_parent" />
+        tools:layout_width="match_parent"
+        />
+
 </FrameLayout>

@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import space.lala.nyxfarmshop.model.MarketItem;
+import space.lala.nyxfarmshop.model.SingleColumnMarketItem;
+import space.lala.nyxfarmshop.model.TwoColumnsMarketItem;
 
 public class MarketFragment extends Fragment {
 
@@ -22,7 +24,7 @@ public class MarketFragment extends Fragment {
     private ViewPager2 viewPager;
     private FragmentStateAdapter pagerAdapter;
     private RecyclerView recyclerView;
-    private CustomAdapterRecyclerView recyclerViewAdapter;
+    private MarketAdapterRecyclerView recyclerViewAdapter;
 
     @Override
     public View onCreateView(
@@ -39,7 +41,7 @@ public class MarketFragment extends Fragment {
         pagerAdapter = new ScreenSlidePagerAdapter(this, NUM_PAGES);
         viewPager.setAdapter(pagerAdapter);
 
-        recyclerViewAdapter = new CustomAdapterRecyclerView();
+        recyclerViewAdapter = new MarketAdapterRecyclerView();
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerViewAdapter.setItems(getMarketItems());
 
@@ -48,16 +50,11 @@ public class MarketFragment extends Fragment {
 
     private ArrayList<MarketItem> getMarketItems() {
         final ArrayList<MarketItem> marketItems = new ArrayList<>();
-        marketItems.add(new MarketItem("item"));
-        marketItems.add(new MarketItem("item"));
-        marketItems.add(new MarketItem("item"));
-        marketItems.add(new MarketItem("item"));
-        marketItems.add(new MarketItem("item"));
-        marketItems.add(new MarketItem("item"));
-        marketItems.add(new MarketItem("item"));
-        marketItems.add(new MarketItem("item"));
-        marketItems.add(new MarketItem("item"));
-        marketItems.add(new MarketItem("item"));
+        marketItems.add(new SingleColumnMarketItem("item", 1));
+        marketItems.add(new TwoColumnsMarketItem("item", 2));
+        marketItems.add(new SingleColumnMarketItem("item", 1));
+        marketItems.add(new TwoColumnsMarketItem("item", 2));
+        marketItems.add(new TwoColumnsMarketItem("item", 2));
         return marketItems;
     }
 }
