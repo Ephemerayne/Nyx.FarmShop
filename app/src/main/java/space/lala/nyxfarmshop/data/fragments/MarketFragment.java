@@ -44,7 +44,7 @@ public class MarketFragment extends Fragment {
         pagerAdapter = new ScreenSlidePagerAdapter(this, NUM_PAGES);
         viewPager.setAdapter(pagerAdapter);
 
-        recyclerViewAdapter = new MarketAdapterRecyclerView();
+        recyclerViewAdapter = new MarketAdapterRecyclerView(getResources());
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerViewAdapter.setItems(getMarketItems());
 
@@ -53,11 +53,11 @@ public class MarketFragment extends Fragment {
 
     private ArrayList<MarketItem> getMarketItems() {
         final ArrayList<MarketItem> marketItems = new ArrayList<>();
-        marketItems.add(new SingleColumnMarketItem("item1", 1));
-        marketItems.add(new TwoColumnsMarketItem("item2", 2, "item3", 3));
-        marketItems.add(new SingleColumnMarketItem("item4", 1));
-        marketItems.add(new TwoColumnsMarketItem("item5", 2, "item6", 3));
-        marketItems.add(new TwoColumnsMarketItem("item7", 2, "item8", 3));
+        marketItems.add(new SingleColumnMarketItem("item1", R.drawable.main_img5));
+        marketItems.add(new TwoColumnsMarketItem("item2", R.drawable.main_img4, "item3", R.drawable.main_img1));
+        marketItems.add(new SingleColumnMarketItem("item4", R.drawable.main_img4));
+        marketItems.add(new TwoColumnsMarketItem("item5", R.drawable.main_img5, "item6", R.drawable.main_img2));
+        marketItems.add(new TwoColumnsMarketItem("item7", R.drawable.main_img1, "item8", R.drawable.main_img3));
         return marketItems;
     }
 }

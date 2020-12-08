@@ -1,8 +1,11 @@
 package space.lala.nyxfarmshop.data.adapters;
 
+import android.content.res.Resources;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,13 +16,18 @@ import java.util.ArrayList;
 import space.lala.nyxfarmshop.R;
 import space.lala.nyxfarmshop.model.MarketItem;
 import space.lala.nyxfarmshop.model.SingleColumnMarketItem;
+import space.lala.nyxfarmshop.model.TwoColumnsMarketItem;
 
 public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapterRecyclerView.BaseViewHolder> {
 
     private final static int VIEW_TYPE_ONE_COLUMN = 0;
     private final static int VIEW_TYPE_TWO_COLUMNS = 1;
-
     private ArrayList<MarketItem> marketItems;
+    private Resources resources;
+
+    public MarketAdapterRecyclerView(Resources resources) {
+        this.resources = resources;
+    }
 
     public void setItems(ArrayList<MarketItem> items) {
         marketItems = items;
@@ -50,7 +58,7 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
 
         if (viewType == 0) {
             return new SingleColumnItemViewHolder(view);
-        } else  {
+        } else {
             return new TwoColumnsItemViewHolder(view);
         }
 
@@ -59,11 +67,20 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
         if (holder instanceof SingleColumnItemViewHolder) {
+
+            ImageView imageView = ((SingleColumnItemViewHolder) holder).itemView.findViewById(R.id.img_item_main);
+            SingleColumnMarketItem singleColumnMarketItem = (SingleColumnMarketItem) marketItems.get(position);
+            imageView.setImageDrawable(resources.getDrawable(singleColumnMarketItem.itemId));
             ((SingleColumnItemViewHolder) holder).nameItem.setText("single column");
+
         } else if (holder instanceof TwoColumnsItemViewHolder) {
+            ImageView img1 = ((TwoColumnsItemViewHolder) holder).itemView.findViewById(R.id.left_img_item);
+            ImageView img2 = ((TwoColumnsItemViewHolder) holder).itemView.findViewById(R.id.right_img_item);
+            TwoColumnsMarketItem twoColumnsMarketItem = (TwoColumnsMarketItem) marketItems.get(position);
+            img1.setImageDrawable(resources.getDrawable(twoColumnsMarketItem.itemId));
+            img2.setImageDrawable(resources.getDrawable(twoColumnsMarketItem.itemId2));
             ((TwoColumnsItemViewHolder) holder).leftItem.setText("left item");
             ((TwoColumnsItemViewHolder) holder).rightItem.setText("right item");
-         //   ((TwoColumnsItemViewHolder) holder).leftItem.setBackgroundResource(R.drawable.main_img1);
         }
     }
 

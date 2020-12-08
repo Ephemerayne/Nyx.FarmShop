@@ -1,15 +1,11 @@
 package space.lala.nyxfarmshop.data.fragments;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-
 import space.lala.nyxfarmshop.R;
 
 public class MarketViewPagerFragment extends Fragment {
