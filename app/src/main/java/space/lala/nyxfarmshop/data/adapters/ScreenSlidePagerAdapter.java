@@ -1,10 +1,12 @@
-package space.lala.nyxfarmshop;
+package space.lala.nyxfarmshop.data.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-class ScreenSlidePagerAdapter extends FragmentStateAdapter {
+import space.lala.nyxfarmshop.data.fragments.MarketViewPagerFragment;
+
+public class ScreenSlidePagerAdapter extends FragmentStateAdapter {
     private int numPages;
     public ScreenSlidePagerAdapter(Fragment fragment, int numPages){
         super(fragment);

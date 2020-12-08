@@ -1,4 +1,4 @@
-package space.lala.nyxfarmshop.data.model;
+package space.lala.nyxfarmshop.model;
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

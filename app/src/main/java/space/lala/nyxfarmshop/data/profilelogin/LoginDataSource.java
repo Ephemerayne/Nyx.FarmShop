@@ -1,6 +1,6 @@
-package space.lala.nyxfarmshop.data;
+package space.lala.nyxfarmshop.data.profilelogin;
 
-import space.lala.nyxfarmshop.data.model.LoggedInUser;
+import space.lala.nyxfarmshop.model.LoggedInUser;
 
 import java.io.IOException;
 

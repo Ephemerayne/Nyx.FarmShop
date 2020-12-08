@@ -1,4 +1,4 @@
-package space.lala.nyxfarmshop.data;
+package space.lala.nyxfarmshop.data.profilelogin;
 
 /**
  * A generic class that holds a result success w/ data or an error exception.

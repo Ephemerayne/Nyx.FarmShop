@@ -1,4 +1,4 @@
-package space.lala.nyxfarmshop;
+package space.lala.nyxfarmshop.data.fragments;
 
 import android.os.Bundle;
 
@@ -12,9 +12,11 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import space.lala.nyxfarmshop.R;
+import space.lala.nyxfarmshop.data.adapters.VerticalMenuAdapterRecyclerView;
 import space.lala.nyxfarmshop.model.HorizontalMenuItemModel;
 import space.lala.nyxfarmshop.model.VerticalMenuItemModel;
-import space.lala.nyxfarmshop.ui.HorizontalMenuAdapterRecyclerView;
+import space.lala.nyxfarmshop.data.adapters.HorizontalMenuAdapterRecyclerView;
 
 public class MenuFragment extends Fragment {
 

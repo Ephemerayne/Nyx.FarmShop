@@ -1,4 +1,4 @@
-package space.lala.nyxfarmshop;
+package space.lala.nyxfarmshop.data.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import space.lala.nyxfarmshop.R;
 import space.lala.nyxfarmshop.model.VerticalMenuItemModel;
 
 public class VerticalMenuAdapterRecyclerView extends RecyclerView.Adapter<VerticalMenuAdapterRecyclerView.ViewHolder> {

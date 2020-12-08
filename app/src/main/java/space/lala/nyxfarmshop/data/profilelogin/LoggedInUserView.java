@@ -1,4 +1,4 @@
-package space.lala.nyxfarmshop.ui.login;
+package space.lala.nyxfarmshop.data.profilelogin;
 
 /**
  * Class exposing authenticated user details to the UI.

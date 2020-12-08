@@ -1,4 +1,4 @@
-package space.lala.nyxfarmshop;
+package space.lala.nyxfarmshop.data.fragments;
 
 import android.os.Bundle;
 
@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import space.lala.nyxfarmshop.R;
+import space.lala.nyxfarmshop.data.adapters.MarketAdapterRecyclerView;
+import space.lala.nyxfarmshop.data.adapters.ScreenSlidePagerAdapter;
 import space.lala.nyxfarmshop.model.MarketItem;
 import space.lala.nyxfarmshop.model.SingleColumnMarketItem;
 import space.lala.nyxfarmshop.model.TwoColumnsMarketItem;
@@ -50,11 +53,11 @@ public class MarketFragment extends Fragment {
 
     private ArrayList<MarketItem> getMarketItems() {
         final ArrayList<MarketItem> marketItems = new ArrayList<>();
-        marketItems.add(new SingleColumnMarketItem("item", 1));
-        marketItems.add(new TwoColumnsMarketItem("item", 2));
-        marketItems.add(new SingleColumnMarketItem("item", 1));
-        marketItems.add(new TwoColumnsMarketItem("item", 2));
-        marketItems.add(new TwoColumnsMarketItem("item", 2));
+        marketItems.add(new SingleColumnMarketItem("item1", 1));
+        marketItems.add(new TwoColumnsMarketItem("item2", 2, "item3", 3));
+        marketItems.add(new SingleColumnMarketItem("item4", 1));
+        marketItems.add(new TwoColumnsMarketItem("item5", 2, "item6", 3));
+        marketItems.add(new TwoColumnsMarketItem("item7", 2, "item8", 3));
         return marketItems;
     }
 }

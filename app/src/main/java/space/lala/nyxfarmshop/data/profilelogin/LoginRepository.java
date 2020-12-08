@@ -1,6 +1,6 @@
-package space.lala.nyxfarmshop.data;
+package space.lala.nyxfarmshop.data.profilelogin;
 
-import space.lala.nyxfarmshop.data.model.LoggedInUser;
+import space.lala.nyxfarmshop.model.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and

@@ -1,4 +1,4 @@
-package space.lala.nyxfarmshop.ui.login;
+package space.lala.nyxfarmshop.data.profilelogin;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;

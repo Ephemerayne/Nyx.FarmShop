@@ -3,9 +3,6 @@ package space.lala.nyxfarmshop;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +11,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import space.lala.nyxfarmshop.ui.login.ProfileFragment;
+import space.lala.nyxfarmshop.data.fragments.BasketFragment;
+import space.lala.nyxfarmshop.data.fragments.InfoFragment;
+import space.lala.nyxfarmshop.data.fragments.MarketFragment;
+import space.lala.nyxfarmshop.data.fragments.MenuFragment;
+import space.lala.nyxfarmshop.data.profilelogin.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 

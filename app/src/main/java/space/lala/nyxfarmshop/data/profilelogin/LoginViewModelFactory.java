@@ -1,11 +1,8 @@
-package space.lala.nyxfarmshop.ui.login;
+package space.lala.nyxfarmshop.data.profilelogin;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
-
-import space.lala.nyxfarmshop.data.LoginDataSource;
-import space.lala.nyxfarmshop.data.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

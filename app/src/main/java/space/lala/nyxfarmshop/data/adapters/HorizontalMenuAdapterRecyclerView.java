@@ -1,4 +1,4 @@
-package space.lala.nyxfarmshop.ui;
+package space.lala.nyxfarmshop.data.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,4 +1,4 @@
-package space.lala.nyxfarmshop;
+package space.lala.nyxfarmshop.data.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import space.lala.nyxfarmshop.R;
 import space.lala.nyxfarmshop.model.MarketItem;
 import space.lala.nyxfarmshop.model.SingleColumnMarketItem;
 
@@ -62,6 +63,7 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
         } else if (holder instanceof TwoColumnsItemViewHolder) {
             ((TwoColumnsItemViewHolder) holder).leftItem.setText("left item");
             ((TwoColumnsItemViewHolder) holder).rightItem.setText("right item");
+         //   ((TwoColumnsItemViewHolder) holder).leftItem.setBackgroundResource(R.drawable.main_img1);
         }
     }
 

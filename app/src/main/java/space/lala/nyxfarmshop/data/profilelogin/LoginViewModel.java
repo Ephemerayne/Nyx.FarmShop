@@ -1,4 +1,4 @@
-package space.lala.nyxfarmshop.ui.login;
+package space.lala.nyxfarmshop.data.profilelogin;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -6,9 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
-import space.lala.nyxfarmshop.data.LoginRepository;
-import space.lala.nyxfarmshop.data.Result;
-import space.lala.nyxfarmshop.data.model.LoggedInUser;
+import space.lala.nyxfarmshop.model.LoggedInUser;
 import space.lala.nyxfarmshop.R;
 
 public class LoginViewModel extends ViewModel {
