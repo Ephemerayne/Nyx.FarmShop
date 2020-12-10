@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:duration="5000">
+        <scale android:drawable="@drawable/png_1" android:scaleGravity="center" />
+    </item>
+    <item android:duration="5000">
+        <scale android:drawable="@drawable/png_2" android:scaleGravity="center" />
+    </item>
+    <item android:duration="5000">
+        <scale android:drawable="@drawable/png_3" android:scaleGravity="center" />
+    </item>
+    <item android:duration="5000">
+        <scale android:drawable="@drawable/png_4" android:scaleGravity="center" />
+    </item>
+    <item android:duration="5000">
+        <scale android:drawable="@drawable/png_5" android:scaleGravity="center" />
+    </item>
+    <item android:duration="100000">
+        <scale android:drawable="@drawable/png_6" android:scaleGravity="center" />
+    </item>
+    <item android:duration="100000">
+        <scale android:drawable="@drawable/png_1" android:scaleGravity="center" />
+    </item>
+    <item android:duration="100000">
+        <scale android:drawable="@drawable/png_8" android:scaleGravity="center" />
+    </item>
+    <item android:duration="100000">
+        <scale android:drawable="@drawable/png_9" android:scaleGravity="center" />
+    </item>
+    <item android:duration="100000">
+        <scale android:drawable="@drawable/png_10" android:scaleGravity="center" />
+    </item>
+    <item android:duration="100000">
+        <scale android:drawable="@drawable/png_11" android:scaleGravity="center" />
+    </item>
+    <item android:duration="100000">
+        <scale android:drawable="@drawable/png_12" android:scaleGravity="center" />
+    </item>
+</animation-list>

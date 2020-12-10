@@ -15,7 +15,7 @@ import space.lala.nyxfarmshop.data.fragments.BasketFragment;
 import space.lala.nyxfarmshop.data.fragments.InfoFragment;
 import space.lala.nyxfarmshop.data.fragments.MarketFragment;
 import space.lala.nyxfarmshop.data.fragments.MenuFragment;
-import space.lala.nyxfarmshop.data.profilelogin.ProfileFragment;
+import space.lala.nyxfarmshop.data.fragments.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         openFragment(new InfoFragment());
                         break;
                     case R.id.item_5:
-                        openFragment(new ProfileFragment());
+                        openFragment(new LoginFragment());
                         break;
                 }
                 updateNavigationBarState(item.getItemId());
