@@ -33,7 +33,9 @@
     <string name="novosibirsk_number">+ 7 (383) 455 54 35</string>
     <string name="sochi_number">+ 7 (862) 567 76 56</string>
     <string name="farmers_shop_ru">farmers@shop.ru</string>
-    <string name="registration_text">Зарегистрироваться</string>
+    <string name="registration_text"><u>Зарегистрироваться</u></string>
+    <string name="cancel_dialog_sheet">Отменить</string>
+    <string name="space_number"> </string>
     <string-array name="cities">
         <item>Москва</item>
         <item>Санкт-Петербург</item>
