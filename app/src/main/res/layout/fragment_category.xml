@@ -3,19 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".data.fragments.MenuFragment">
+    tools:context=".data.fragments.CategoryFragment"
+    android:orientation="horizontal">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_horizontal_menu"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_vertical_menu"
+        android:id="@+id/recycler_view_vertical_menu_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
 
 </LinearLayout>

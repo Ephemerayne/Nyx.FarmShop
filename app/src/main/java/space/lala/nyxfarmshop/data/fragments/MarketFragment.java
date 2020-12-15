@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -30,7 +31,7 @@ import space.lala.nyxfarmshop.model.ProductsModel.CucumberModel;
 import space.lala.nyxfarmshop.model.ProductsModel.ProductModel;
 import space.lala.nyxfarmshop.model.ProductsModel.TomatoModel;
 
-public class MarketFragment extends Fragment {
+public class MarketFragment extends Fragment implements MarketAdapterRecyclerView.OnCategoryListener {
 
     private RecyclerView recyclerView;
     private MarketAdapterRecyclerView recyclerViewAdapter;
@@ -46,7 +47,7 @@ public class MarketFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        recyclerViewAdapter = new MarketAdapterRecyclerView(getContext(), this);
+        recyclerViewAdapter = new MarketAdapterRecyclerView(getContext(), this, this);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerViewAdapter.setItems(getMarketItems());
 
@@ -61,5 +62,14 @@ public class MarketFragment extends Fragment {
         marketItems.add(new SingleColumnMarketItem(getString(R.string.meat).toUpperCase(), R.drawable.item_meat));
         marketItems.add(new SingleColumnMarketItem(getString(R.string.grocery).toUpperCase(), R.drawable.item_milk_bread_eggs));
         return marketItems;
+    }
+
+    @Override
+    public void onCategoryClick(int position) {
+        getMarketItems().get(position);
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, new CategoryFragment());
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

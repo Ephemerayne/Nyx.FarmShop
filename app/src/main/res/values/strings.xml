@@ -47,6 +47,7 @@
     <string name="fruits">Фрукты</string>
     <string name="meat">Мясо</string>
     <string name="grocery">Молоко, хлеб, яйца</string>
+    <string name="send_mail">Написать письмо</string>
     <string-array name="cities">
         <item>Москва</item>
         <item>Санкт-Петербург</item>

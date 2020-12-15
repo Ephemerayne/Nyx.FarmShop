@@ -1,32 +1,38 @@
 package space.lala.nyxfarmshop.data.fragments;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import space.lala.nyxfarmshop.R;
 
 public class InfoFragment extends Fragment {
     TextView numberTextView;
     String callNumber = "";
+    TextView mailTextView;
+    ImageView vk;
+    ImageView fb;
+    ImageView tlg;
+    ImageView inst;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public View onCreateView(
             LayoutInflater inflater,
@@ -36,6 +42,11 @@ public class InfoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_info, container, false);
         Spinner spinner = view.findViewById(R.id.spinner_city);
         numberTextView = view.findViewById(R.id.text_view_callnumber);
+        mailTextView = view.findViewById(R.id.text_view_mail_press);
+        vk = view.findViewById(R.id.icon_vk);
+        fb = view.findViewById(R.id.icon_fb);
+        tlg = view.findViewById(R.id.icon_tlg);
+        inst = view.findViewById(R.id.icon_inst);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -63,10 +74,12 @@ public class InfoFragment extends Fragment {
                         callNumber = getString(R.string.sochi_number);
                         break;
                 }
+
+
                 numberTextView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        showBottomSheetDialog();
+                        showBottomSheetDialogCall();
                     }
                 });
             }
@@ -75,7 +88,7 @@ public class InfoFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
 
-            public void showBottomSheetDialog() {
+            public void showBottomSheetDialogCall() {
                 FragmentTransaction transaction =
                         getActivity().getSupportFragmentManager().beginTransaction();
 
@@ -84,6 +97,117 @@ public class InfoFragment extends Fragment {
             }
         });
 
+        mailTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showBottomSheetDialogMail();
+            }
+
+
+            public void showBottomSheetDialogMail() {
+                FragmentTransaction transaction =
+                        getActivity().getSupportFragmentManager().beginTransaction();
+
+                new MailBottomSheetFragment().show(transaction, "tag");
+            }
+        });
+
+
+        //SOCIAL BUTTONS LISTENER//
+        vk.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        vk.setImageResource(R.mipmap.vk__click);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        vk.setImageResource(R.mipmap.vk);
+                        Uri uri = Uri.parse("http://vk.com");
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        break;
+                    case MotionEvent.ACTION_CANCEL:
+                        vk.setImageResource(R.mipmap.vk);
+                        break;
+                }
+                return true;
+            }
+        });
+
+        fb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        fb.setImageResource(R.mipmap.facebook_click);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        fb.setImageResource(R.mipmap.facebook);
+                        Uri uri = Uri.parse("http://facebook.com");
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        break;
+                    case MotionEvent.ACTION_CANCEL:
+                        fb.setImageResource(R.mipmap.facebook);
+                        break;
+                }
+                return true;
+            }
+        });
+
+        tlg.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        tlg.setImageResource(R.mipmap.telegram__click);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        tlg.setImageResource(R.mipmap.telegram);
+                        Uri uri = Uri.parse("http://telegram.org");
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        break;
+                    case MotionEvent.ACTION_CANCEL:
+                        tlg.setImageResource(R.mipmap.telegram);
+                        break;
+                }
+                return true;
+            }
+        });
+
+       inst.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch (motionEvent.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        inst.setImageResource(R.mipmap.instagram_click);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        inst.setImageResource(R.mipmap.instagram);
+                        Uri uri = Uri.parse("http://instagram.com");
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                        break;
+                    case MotionEvent.ACTION_CANCEL:
+                        inst.setImageResource(R.mipmap.instagram);
+                        break;
+                }
+                return true;
+            }
+        });
+
         return view;
     }
 }
+
+
+
+
+
+
+
+
+
+

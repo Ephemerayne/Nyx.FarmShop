@@ -29,11 +29,13 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
     private final static int VIEW_TYPE_TWO_COLUMNS = 2;
     private ArrayList<MarketItem> marketItems;
     private final Resources resources;
+    private OnCategoryListener onCategoryListener;
     MarketFragment marketFragment;
 
-    public MarketAdapterRecyclerView(Context context, MarketFragment marketFragment) {
+    public MarketAdapterRecyclerView(Context context, MarketFragment marketFragment, OnCategoryListener onCategoryListener) {
         this.marketFragment = marketFragment;
         this.resources = context.getResources();
+        this.onCategoryListener = onCategoryListener;
     }
 
     public void setItems(ArrayList<MarketItem> items) {
@@ -70,7 +72,7 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
         if (viewType == 0) {
             return new ViewPagerHeaderViewHolder(view);
         } else if (viewType == 1) {
-            return new SingleColumnItemViewHolder(view);
+            return new SingleColumnItemViewHolder(view, onCategoryListener);
         } else {
             return new TwoColumnsItemViewHolder(view);
         }
@@ -116,12 +118,20 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
         }
     }
 
-    public static class SingleColumnItemViewHolder extends BaseViewHolder {
+    public static class SingleColumnItemViewHolder extends BaseViewHolder implements View.OnClickListener {
         private final TextView nameItem;
+        OnCategoryListener onCategoryListener;
 
-        public SingleColumnItemViewHolder(@NonNull View itemView) {
+        public SingleColumnItemViewHolder(@NonNull View itemView, OnCategoryListener onCategoryListener) {
             super(itemView);
             nameItem = itemView.findViewById(R.id.name_item);
+            itemView.setOnClickListener(this);
+            this.onCategoryListener = onCategoryListener;
+        }
+
+        @Override
+        public void onClick(View view) {
+            onCategoryListener.onCategoryClick(getAbsoluteAdapterPosition());
         }
     }
 
@@ -142,4 +152,8 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
         }
     }
 
+    public interface OnCategoryListener {
+        void onCategoryClick(int position);
+
+    }
 }

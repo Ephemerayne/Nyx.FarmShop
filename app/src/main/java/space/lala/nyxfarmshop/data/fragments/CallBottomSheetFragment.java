@@ -32,8 +32,7 @@ public class CallBottomSheetFragment extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_bottom_sheet_dialog_list, container, false);
-        TextView textView = view.findViewById(R.id.text_view_callnumber);
+        View view = inflater.inflate(R.layout.fragment_bottom_sheet_dialog_list_call, container, false);
 
         if (getArguments() != null) {
             number = getArguments().getString(numberKey);
