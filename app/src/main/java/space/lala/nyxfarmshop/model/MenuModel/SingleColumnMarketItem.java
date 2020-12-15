@@ -1,4 +1,4 @@
-package space.lala.nyxfarmshop.model;
+package space.lala.nyxfarmshop.model.MenuModel;
 
 public class SingleColumnMarketItem implements MarketItem {
     public String itemName;

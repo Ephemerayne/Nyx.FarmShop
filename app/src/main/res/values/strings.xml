@@ -35,7 +35,18 @@
     <string name="farmers_shop_ru">farmers@shop.ru</string>
     <string name="registration_text"><u>Зарегистрироваться</u></string>
     <string name="cancel_dialog_sheet">Отменить</string>
-    <string name="space_number"> </string>
+    <string name="cucumber">Огурцы</string>
+    <string name="tomato">Помидоры</string>
+    <string name="potato">Картофель</string>
+    <string name="onion">Лук</string>
+    <string name="cabbage">Капуста</string>
+    <string name="eggplant">Баклажан</string>
+    <string name="garlic">Чеснок</string>
+    <string name="bulgarian_spice">Болгарский перец</string>
+    <string name="vegetables">Овощи</string>
+    <string name="fruits">Фрукты</string>
+    <string name="meat">Мясо</string>
+    <string name="grocery">Молоко, хлеб, яйца</string>
     <string-array name="cities">
         <item>Москва</item>
         <item>Санкт-Петербург</item>

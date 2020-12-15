@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import space.lala.nyxfarmshop.R;
-import space.lala.nyxfarmshop.model.VerticalMenuItemModel;
+import space.lala.nyxfarmshop.model.MenuModel.VerticalMenuItemModel;
 
 public class VerticalMenuAdapterRecyclerView extends RecyclerView.Adapter<VerticalMenuAdapterRecyclerView.ViewHolder> {
 

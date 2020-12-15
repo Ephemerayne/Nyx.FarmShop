@@ -67,24 +67,29 @@ public class LoginFragment extends Fragment {
         imagesAnimation.add(R.drawable.png_11);
         imagesAnimation.add(R.drawable.png_12);
         imageViewProgressBar = view.findViewById(R.id.loading);
-        Button button = (Button) view.findViewById(R.id.login);
+        Button button = view.findViewById(R.id.login);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (editTextNumber.getText().toString().isEmpty() || editTextPassword.getText().toString().isEmpty()) {
-//                    return;
-//                }
-               button.setEnabled(false);
+               if (editTextNumber.getText().toString().isEmpty() || editTextPassword.getText().toString().isEmpty()) {
+                   Toast toast = Toast.makeText(getContext(), "Заполните все поля", Toast.LENGTH_SHORT);
+                   toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER, 0, 600);
+                   toast.show();
+               return;
+               }
 
                 String number = editTextNumber.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
                 if (!number.isEmpty() && !password.isEmpty()) {
+                    button.setEnabled(false);
+                    button.setBackgroundColor(getResources().getColor(R.color.grey));
                     AppCompatActivity activity = (AppCompatActivity) view.getContext();
 
                     //HIDE KEYBOARD
                     InputMethodManager imm = (InputMethodManager) Objects.requireNonNull(getActivity()).getSystemService(Activity.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(editTextPassword.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+
                     //ANIMATION LOOP RUN
                     Handler handler = new Handler();
                     Runnable runnable = new Runnable() {

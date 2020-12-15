@@ -17,9 +17,9 @@ import java.util.ArrayList;
 import space.lala.nyxfarmshop.R;
 import space.lala.nyxfarmshop.database.ProductContract;
 import space.lala.nyxfarmshop.database.ProductDBHelper;
-import space.lala.nyxfarmshop.model.CucumberModel;
-import space.lala.nyxfarmshop.model.ProductModel;
-import space.lala.nyxfarmshop.model.TomatoModel;
+import space.lala.nyxfarmshop.model.ProductsModel.CucumberModel;
+import space.lala.nyxfarmshop.model.ProductsModel.ProductModel;
+import space.lala.nyxfarmshop.model.ProductsModel.TomatoModel;
 
 public class BasketFragment extends Fragment {
 
@@ -41,7 +41,7 @@ public class BasketFragment extends Fragment {
 
         ProductDBHelper dbHelper = new ProductDBHelper(getContext());
         mDatabase = dbHelper.getWritableDatabase();
-        //  addProduct();
+      // addProduct();
         getProducts();
         return view;
     }
@@ -70,10 +70,10 @@ public class BasketFragment extends Fragment {
 
             switch (productId) {
                 case CucumberModel.productId:
-                    products.add(new CucumberModel(price, name));
+                    products.add(new CucumberModel(price, name, R.drawable.item_cucumber));
                     break;
                 case TomatoModel.productId:
-                    products.add(new TomatoModel(price, name));
+                    products.add(new TomatoModel(price, name, R.drawable.item_tomato));
                     break;
             }
 

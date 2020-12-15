@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.google.android.material.appbar.AppBarLayout;
+
 import space.lala.nyxfarmshop.R;
 
 public class MarketViewPagerFragment extends Fragment {
@@ -29,6 +32,7 @@ public class MarketViewPagerFragment extends Fragment {
     ) {
         View view = inflater.inflate(R.layout.fragment_market_view_pager, container, false);
         imgMainFirst = view.findViewById(R.id.img1);
+
         if (getArguments() != null) {
            position = getArguments().getInt(positionArg);
         }
@@ -46,7 +50,7 @@ public class MarketViewPagerFragment extends Fragment {
                 imgMainFirst.setImageDrawable(getResources().getDrawable(R.drawable.main_img4));
                 break;
             case 4:
-                imgMainFirst.setImageDrawable(getResources().getDrawable(R.drawable.main_img5));
+                imgMainFirst.setImageDrawable(getResources().getDrawable(R.drawable.item_cucumber));
                 break;
         }
 

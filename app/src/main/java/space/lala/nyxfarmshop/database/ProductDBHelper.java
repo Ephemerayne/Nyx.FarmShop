@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class ProductDBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "productlist.db";
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
 
     public ProductDBHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -22,6 +22,7 @@ public class ProductDBHelper extends SQLiteOpenHelper {
                 ProductContract.ProductEntry.COLUMN_NAME + " TEXT NOT NULL, " +
                 ProductContract.ProductEntry.COLUMN_PRICE + " REAL NOT NULL, " +
                 ProductContract.ProductEntry.COLUMN_PRODUCT_ID + " INTEGER NOT NULL, " +
+                ProductContract.ProductEntry.COLUMN_IMAGE_ID + " INTEGER NOT NULL, " +
                 ProductContract.ProductEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
                 ");";
 

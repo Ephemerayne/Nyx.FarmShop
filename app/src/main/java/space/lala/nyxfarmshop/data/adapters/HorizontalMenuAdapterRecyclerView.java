@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import space.lala.nyxfarmshop.R;
-import space.lala.nyxfarmshop.model.HorizontalMenuItemModel;
+import space.lala.nyxfarmshop.model.MenuModel.HorizontalMenuItemModel;
 
 public class HorizontalMenuAdapterRecyclerView extends RecyclerView.Adapter<HorizontalMenuAdapterRecyclerView.ViewHolder> {
 
