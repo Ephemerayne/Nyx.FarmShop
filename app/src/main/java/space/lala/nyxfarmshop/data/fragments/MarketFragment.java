@@ -25,15 +25,13 @@ import space.lala.nyxfarmshop.database.ProductDBHelper;
 import space.lala.nyxfarmshop.model.MenuModel.MarketItem;
 import space.lala.nyxfarmshop.model.MenuModel.SingleColumnMarketItem;
 import space.lala.nyxfarmshop.model.MenuModel.TwoColumnsMarketItem;
+import space.lala.nyxfarmshop.model.MenuModel.ViewPagerHeaderItem;
 import space.lala.nyxfarmshop.model.ProductsModel.CucumberModel;
 import space.lala.nyxfarmshop.model.ProductsModel.ProductModel;
 import space.lala.nyxfarmshop.model.ProductsModel.TomatoModel;
 
 public class MarketFragment extends Fragment {
 
-    private static final int NUM_PAGES = 5;
-    private ViewPager2 viewPager;
-    private FragmentStateAdapter pagerAdapter;
     private RecyclerView recyclerView;
     private MarketAdapterRecyclerView recyclerViewAdapter;
 
@@ -45,14 +43,10 @@ public class MarketFragment extends Fragment {
     ) {
         View view = inflater.inflate(R.layout.fragment_market, container, false);
 
-        viewPager = view.findViewById(R.id.view_pager);
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        pagerAdapter = new ScreenSlidePagerAdapter(this, NUM_PAGES);
-        viewPager.setAdapter(pagerAdapter);
-
-        recyclerViewAdapter = new MarketAdapterRecyclerView(getResources());
+        recyclerViewAdapter = new MarketAdapterRecyclerView(getContext(), this);
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerViewAdapter.setItems(getMarketItems());
 
@@ -61,6 +55,7 @@ public class MarketFragment extends Fragment {
 
     private ArrayList<MarketItem> getMarketItems() {
         final ArrayList<MarketItem> marketItems = new ArrayList<>();
+        marketItems.add(new ViewPagerHeaderItem());
         marketItems.add(new SingleColumnMarketItem(getString(R.string.vegetables).toUpperCase(), R.drawable.item_vegetables));
         marketItems.add(new SingleColumnMarketItem(getString(R.string.fruits).toUpperCase(), R.drawable.item_fruits));
         marketItems.add(new SingleColumnMarketItem(getString(R.string.meat).toUpperCase(), R.drawable.item_meat));

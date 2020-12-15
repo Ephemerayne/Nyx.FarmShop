@@ -1,5 +1,6 @@
 package space.lala.nyxfarmshop.data.adapters;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,23 +10,30 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import java.util.ArrayList;
 
 import space.lala.nyxfarmshop.R;
+import space.lala.nyxfarmshop.data.fragments.MarketFragment;
 import space.lala.nyxfarmshop.model.MenuModel.MarketItem;
 import space.lala.nyxfarmshop.model.MenuModel.SingleColumnMarketItem;
 import space.lala.nyxfarmshop.model.MenuModel.TwoColumnsMarketItem;
+import space.lala.nyxfarmshop.model.MenuModel.ViewPagerHeaderItem;
 
 public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapterRecyclerView.BaseViewHolder> {
 
-    private final static int VIEW_TYPE_ONE_COLUMN = 0;
-    private final static int VIEW_TYPE_TWO_COLUMNS = 1;
+    private final static int VIEW_TYPE_HEADER = 0;
+    private final static int VIEW_TYPE_ONE_COLUMN = 1;
+    private final static int VIEW_TYPE_TWO_COLUMNS = 2;
     private ArrayList<MarketItem> marketItems;
     private final Resources resources;
+    MarketFragment marketFragment;
 
-    public MarketAdapterRecyclerView(Resources resources) {
-        this.resources = resources;
+    public MarketAdapterRecyclerView(Context context, MarketFragment marketFragment) {
+        this.marketFragment = marketFragment;
+        this.resources = context.getResources();
     }
 
     public void setItems(ArrayList<MarketItem> items) {
@@ -35,7 +43,9 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
 
     @Override
     public int getItemViewType(int position) {
-        if (marketItems.get(position) instanceof SingleColumnMarketItem) {
+        if (marketItems.get(position) instanceof ViewPagerHeaderItem) {
+            return VIEW_TYPE_HEADER;
+        } else if (marketItems.get(position) instanceof SingleColumnMarketItem) {
             return VIEW_TYPE_ONE_COLUMN;
         } else {
             return VIEW_TYPE_TWO_COLUMNS;
@@ -46,7 +56,9 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
     public BaseViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         int layoutId;
 
-        if (viewType == 0) {
+        if (viewType == VIEW_TYPE_HEADER) {
+            layoutId = R.layout.view_pager_header;
+        } else if (viewType == VIEW_TYPE_ONE_COLUMN) {
             layoutId = R.layout.single_column_market_item;
         } else {
             layoutId = R.layout.two_columns_market_item;
@@ -56,6 +68,8 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
                 .inflate(layoutId, viewGroup, false);
 
         if (viewType == 0) {
+            return new ViewPagerHeaderViewHolder(view);
+        } else if (viewType == 1) {
             return new SingleColumnItemViewHolder(view);
         } else {
             return new TwoColumnsItemViewHolder(view);
@@ -80,6 +94,11 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
             img2.setImageDrawable(resources.getDrawable(twoColumnsMarketItem.itemId2));
             ((TwoColumnsItemViewHolder) holder).leftItem.setText(twoColumnsMarketItem.itemName);
             ((TwoColumnsItemViewHolder) holder).rightItem.setText(twoColumnsMarketItem.itemName2);
+        } else {
+            ViewPager2 viewPager = ((ViewPagerHeaderViewHolder) holder).itemView.findViewById(R.id.view_pager);
+
+            FragmentStateAdapter pagerAdapter = new ScreenSlidePagerAdapter(marketFragment, 5);
+            viewPager.setAdapter(pagerAdapter);
         }
     }
 
@@ -114,6 +133,12 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
             super(itemView);
             leftItem = itemView.findViewById(R.id.left_name_item);
             rightItem = itemView.findViewById(R.id.right_name_item);
+        }
+    }
+
+    public static class ViewPagerHeaderViewHolder extends BaseViewHolder {
+        public ViewPagerHeaderViewHolder(@NonNull View itemView) {
+            super(itemView);
         }
     }
 
