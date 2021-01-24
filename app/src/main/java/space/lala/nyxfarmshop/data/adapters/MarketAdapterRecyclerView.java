@@ -154,6 +154,5 @@ public class MarketAdapterRecyclerView extends RecyclerView.Adapter<MarketAdapte
 
     public interface OnCategoryListener {
         void onCategoryClick(int position);
-
     }
 }

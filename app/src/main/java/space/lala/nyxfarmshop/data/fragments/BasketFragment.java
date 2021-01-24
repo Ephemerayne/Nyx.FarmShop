@@ -17,9 +17,7 @@ import java.util.ArrayList;
 import space.lala.nyxfarmshop.R;
 import space.lala.nyxfarmshop.database.ProductContract;
 import space.lala.nyxfarmshop.database.ProductDBHelper;
-import space.lala.nyxfarmshop.model.ProductsModel.CucumberModel;
 import space.lala.nyxfarmshop.model.ProductsModel.ProductModel;
-import space.lala.nyxfarmshop.model.ProductsModel.TomatoModel;
 
 public class BasketFragment extends Fragment {
 
@@ -42,50 +40,52 @@ public class BasketFragment extends Fragment {
         ProductDBHelper dbHelper = new ProductDBHelper(getContext());
         mDatabase = dbHelper.getWritableDatabase();
       // addProduct();
-        getProducts();
+    //    getProducts();
         return view;
     }
 
-    private void addProduct() {
+    private void addProduct(ProductModel productModel) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(ProductContract.ProductEntry.COLUMN_NAME, "Огурцы");
-        contentValues.put(ProductContract.ProductEntry.COLUMN_PRODUCT_ID, CucumberModel.productId);
-        contentValues.put(ProductContract.ProductEntry.COLUMN_PRICE, 45.0);
+        contentValues.put(ProductContract.ProductEntry.COLUMN_NAME, productModel.name);
+        contentValues.put(ProductContract.ProductEntry.COLUMN_PRODUCT_ID, productModel.productId);
+        contentValues.put(ProductContract.ProductEntry.COLUMN_PRICE, productModel.price);
+        contentValues.put(ProductContract.ProductEntry.COLUMN_CATEGORY_NAME, productModel.category);
+        contentValues.put(ProductContract.ProductEntry.COLUMN_IMAGE_ID, productModel.imageId);
 
         mDatabase.insert(ProductContract.ProductEntry.TABLE_NAME, null, contentValues);
     }
 
-    private void getProducts() {
-        final Cursor cursor = mDatabase.query(ProductContract.ProductEntry.TABLE_NAME, null, null, null, null, null, ProductContract.ProductEntry.COLUMN_TIMESTAMP + " DESC");
-        cursor.moveToFirst();
-
-        while (!cursor.isAfterLast()) {
-            String name;
-            double price;
-            int productId;
-
-            name = cursor.getString(cursor.getColumnIndex(ProductContract.ProductEntry.COLUMN_NAME));
-            price = cursor.getDouble(cursor.getColumnIndex(ProductContract.ProductEntry.COLUMN_PRICE));
-            productId = cursor.getInt(cursor.getColumnIndex(ProductContract.ProductEntry.COLUMN_PRODUCT_ID));
-
-            switch (productId) {
-                case CucumberModel.productId:
-                    products.add(new CucumberModel(price, name, R.drawable.item_cucumber));
-                    break;
-                case TomatoModel.productId:
-                    products.add(new TomatoModel(price, name, R.drawable.item_tomato));
-                    break;
-            }
-
-
-            cursor.moveToNext();
-        }
-        setProductsTextView();
-    }
-
-    private void setProductsTextView(){
-        for (ProductModel product: products) {
-            textView.append("\n" + product.name + " " + product.price);
-        }
-    }
+  //  private void getProducts() {
+//        final Cursor cursor = mDatabase.query(ProductContract.ProductEntry.TABLE_NAME, null, null, null, null, null, ProductContract.ProductEntry.COLUMN_TIMESTAMP + " DESC");
+//        cursor.moveToFirst();
+//
+//        while (!cursor.isAfterLast()) {
+//            String name;
+//            double price;
+//            int productId;
+//
+//            name = cursor.getString(cursor.getColumnIndex(ProductContract.ProductEntry.COLUMN_NAME));
+//            price = cursor.getDouble(cursor.getColumnIndex(ProductContract.ProductEntry.COLUMN_PRICE));
+//            productId = cursor.getInt(cursor.getColumnIndex(ProductContract.ProductEntry.COLUMN_PRODUCT_ID));
+//
+//            switch (productId) {
+//                case CucumberModel.productId:
+//                    products.add(new CucumberModel(price, name, R.drawable.item_cucumber));
+//                    break;
+//                case TomatoModel.productId:
+//                    products.add(new TomatoModel(price, name, R.drawable.item_tomato));
+//                    break;
+//            }
+//
+//
+//            cursor.moveToNext();
+//        }
+//        setProductsTextView();
+//    }
+//
+//    private void setProductsTextView(){
+//        for (ProductModel product: products) {
+//            textView.append("\n" + product.name + " " + product.price);
+//        }
+//    }
 }

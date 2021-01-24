@@ -1,16 +1,11 @@
 package space.lala.nyxfarmshop.data.fragments;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,16 +15,9 @@ import java.util.ArrayList;
 
 import space.lala.nyxfarmshop.R;
 import space.lala.nyxfarmshop.data.adapters.MarketAdapterRecyclerView;
-import space.lala.nyxfarmshop.data.adapters.ScreenSlidePagerAdapter;
-import space.lala.nyxfarmshop.database.ProductContract;
-import space.lala.nyxfarmshop.database.ProductDBHelper;
 import space.lala.nyxfarmshop.model.MenuModel.MarketItem;
 import space.lala.nyxfarmshop.model.MenuModel.SingleColumnMarketItem;
-import space.lala.nyxfarmshop.model.MenuModel.TwoColumnsMarketItem;
 import space.lala.nyxfarmshop.model.MenuModel.ViewPagerHeaderItem;
-import space.lala.nyxfarmshop.model.ProductsModel.CucumberModel;
-import space.lala.nyxfarmshop.model.ProductsModel.ProductModel;
-import space.lala.nyxfarmshop.model.ProductsModel.TomatoModel;
 
 public class MarketFragment extends Fragment implements MarketAdapterRecyclerView.OnCategoryListener {
 
@@ -68,7 +56,7 @@ public class MarketFragment extends Fragment implements MarketAdapterRecyclerVie
     public void onCategoryClick(int position) {
         getMarketItems().get(position);
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, new CategoryFragment());
+        transaction.replace(R.id.fragment_container, CategoryFragment.newInstance(position));
         transaction.addToBackStack(null);
         transaction.commit();
     }

@@ -15,8 +15,7 @@
             android:id="@+id/img_category"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_launcher_background" />
+            android:layout_gravity="center" />
 
         <TextView
             android:id="@+id/name_category"
@@ -24,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:textSize="20sp"
-            tools:text="Item" />
+            android:text="Item l" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -36,8 +35,7 @@
             android:id="@+id/img_category_two"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_launcher_background" />
+            android:layout_gravity="center" />
 
         <TextView
             android:id="@+id/name_category_two"
@@ -45,6 +43,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:textSize="20sp"
-            tools:text="Item" />
+            android:text="Item r" />
     </androidx.cardview.widget.CardView>
 </LinearLayout>

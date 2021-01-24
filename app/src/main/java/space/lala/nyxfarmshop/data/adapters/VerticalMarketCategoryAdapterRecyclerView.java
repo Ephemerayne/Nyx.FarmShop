@@ -15,10 +15,11 @@ import space.lala.nyxfarmshop.model.MenuModel.VerticalMenuItemModel;
 
 public class VerticalMarketCategoryAdapterRecyclerView extends RecyclerView.Adapter<VerticalMarketCategoryAdapterRecyclerView.ViewHolder> {
 
-    private ArrayList<VerticalMenuItemModel> categoryArray;
+    private ArrayList<VerticalMenuItemModel> categoryArray = new ArrayList<>();
 
     public void setCategoryArray(ArrayList<VerticalMenuItemModel> categoryArray) {
-        this.categoryArray = categoryArray;
+        this.categoryArray.clear();
+        this.categoryArray.addAll(categoryArray);
         notifyDataSetChanged();
     }
 
